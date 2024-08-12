@@ -31,11 +31,13 @@ export default function DataTable({ data, headers }: DataTableProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          <TableRow>
-            {headers.map((row, index) => (
-              <TableCell key={index}></TableCell>
-            ))}
-          </TableRow>
+          {data.map((row, index) => (
+            <TableRow key={index}>
+              {headers.map((column, index) => (
+                <TableCell key={index}>{row[column.field]}</TableCell>
+              ))}
+            </TableRow>
+          ))}
         </TableBody>
         <TableFooter>
           <TableCell>Footer</TableCell>
